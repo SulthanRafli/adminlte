@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>List Data Multiple</h1>
+                <h1>List Data Master</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">List Data Multiple</li>
+                    <li class="breadcrumb-item active">List Data Master</li>
                 </ol>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <a type="button" href="<?php echo base_url(); ?>C_crud/add_multiple" class="btn btn-md btn-primary">Tambah Data Multiple</a>
+                <a type="button" href="<?php echo base_url(); ?>C_crud/add_master" class="btn btn-md btn-primary">Tambah Data Master</a>
             </div>
         </div>
         <br>
@@ -30,7 +30,6 @@
                                 <tr>
                                     <th class="text-center" width="10%">No</th>
                                     <th class="text-center">Text</th>
-                                    <th class="text-center">Number</th>
                                     <th class="text-center" width="10%">Aksi</th>
                                 </tr>
                             </thead>
@@ -41,13 +40,12 @@
                                     echo "
                                         <tr>
                                             <td>$no</td>
-                                            <td>$ll->text</td>
-                                            <td>$ll->number</td>                                                                                                                             
+                                            <td>$ll->text</td>                                                                                                                       
                                             <td>
                                                 <div class='btn-group-vertical'>
-                                                    <a type='button' href='" . base_url() . "C_crud/view_multiple/$ll->idMultiple' class='btn btn-md btn-primary'>Lihat</a>
-                                                    <a type='button' href='" . base_url() . "C_crud/edit_multiple/$ll->idMultiple' class='btn btn-md btn-warning text-white'>Ubah</a>
-                                                    <button type='button' class='btn btn-md btn-danger' onclick='deleteData($ll->idMultiple)'>Hapus</button>
+                                                    <a type='button' href='" . base_url() . "C_crud/view_master/$ll->idMaster' class='btn btn-md btn-primary'>Lihat</a>
+                                                    <a type='button' href='" . base_url() . "C_crud/edit_master/$ll->idMaster' class='btn btn-md btn-warning text-white'>Ubah</a>
+                                                    <button type='button' class='btn btn-md btn-danger' onclick='deleteData($ll->idMaster)'>Hapus</button>
                                                 </div>
                                             </td>
                                         </tr>                                        
@@ -83,7 +81,7 @@
         }).then(function(isConfirm) {
             if (isConfirm) {
                 $.ajax({
-                    url: baseUrl + "C_crud/delete_multiple/" + id,
+                    url: baseUrl + "C_crud/delete_master/" + id,
                     dataType: "json",
                     success: function(data) {
                         if (data.status === true) {
@@ -93,7 +91,7 @@
                                 icon: "success",
                                 button: "OK",
                             }).then(function(isConfirm) {
-                                window.location = baseUrl + "C_crud/list_multiple";
+                                window.location = baseUrl + "C_crud/list_master";
                             });
                         } else {
                             swal({

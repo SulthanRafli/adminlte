@@ -56,7 +56,48 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $page === 'crud/list_login' || $page === 'crud/list_single' || $page === 'crud/list_multiple' || $page === 'crud/list_master' || $page === 'crud/list_master_multiple' ? 'menu-open' : '' ?>">
+                    <a href="#" class="nav-link <?= $page === 'crud/list_login' || $page === 'crud/list_single' || $page === 'crud/list_multiple' || $page === 'crud/list_master' || $page === 'crud/list_master_multiple' ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            CRUD
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('C_crud/list_login') ?>" class="nav-link <?= $page === 'crud/list_login' ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Master Login</p>
+                            </a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('C_crud/list_single') ?>" class="nav-link <?= $page === 'crud/list_single' ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Single</p>
+                            </a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('C_crud/list_multiple') ?>" class="nav-link <?= $page === 'crud/list_multiple' ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Multiple</p>
+                            </a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('C_crud/list_master') ?>" class="nav-link <?= $page === 'crud/list_master' ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Master</p>
+                            </a>
+                        </li>                       
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('C_crud/list_master_multiple') ?>" class="nav-link <?= $page === 'crud/list_master_multiple' ? 'active' : '' ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Master Multiple</p>
+                            </a>
+                        </li>                       
+                    </ul>
+                </li>
+                <!-- <li class="nav-item">
                     <a href="<?php echo base_url('C_home/widgets') ?>" class="nav-link <?= $page === 'widgets' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
@@ -244,36 +285,7 @@
                         <i class="nav-icon fas fa-columns"></i>
                         <p>Kanban Board</p>
                     </a>
-                </li>
-                <li class="nav-item <?= $page === 'crud/list_login' || $page === 'crud/list_single' || $page === 'crud/list_multiple' ? 'menu-open' : '' ?>">
-                    <a href="#" class="nav-link <?= $page === 'crud/list_login' || $page === 'crud/list_single' || $page === 'crud/list_multiple' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            CRUD
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?php echo base_url('C_crud/list_login') ?>" class="nav-link <?= $page === 'crud/list_login' ? 'active' : '' ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Master Login</p>
-                            </a>
-                        </li>                       
-                        <li class="nav-item">
-                            <a href="<?php echo base_url('C_crud/list_single') ?>" class="nav-link <?= $page === 'crud/list_single' ? 'active' : '' ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Form Single</p>
-                            </a>
-                        </li>                       
-                        <li class="nav-item">
-                            <a href="<?php echo base_url('C_crud/list_multiple') ?>" class="nav-link <?= $page === 'crud/list_multiple' ? 'active' : '' ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Form Multiple</p>
-                            </a>
-                        </li>                       
-                    </ul>
-                </li>
+                </li>                
                 <li class="nav-item <?= $page === 'mailbox/mailbox_inbox' || $page === 'mailbox/mailbox_compose' || $page === 'mailbox/mailbox_read' ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link <?= $page === 'mailbox/mailbox_inbox' || $page === 'mailbox/mailbox_compose' || $page === 'mailbox/mailbox_read' ? 'active' : '' ?>">
                         <i class="nav-icon far fa-envelope"></i>
@@ -527,7 +539,7 @@
                         <i class="nav-icon far fa-circle text-info"></i>
                         <p>Informational</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

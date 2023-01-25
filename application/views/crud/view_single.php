@@ -22,15 +22,15 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Text</label>
-                                <input type="text" class="form-control" value="<?php echo $data->text ?>" name="text" readonly placeholder="Nama">
+                                <input type="text" class="form-control" value="<?php echo $data->text ?>" name="text" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Number</label>
-                                <input type="text" class="form-control" value="<?php echo $data->number ?>" name="number" readonly placeholder="Username">
+                                <input type="text" class="form-control" value="<?php echo $data->number ?>" name="number" readonly>
                             </div>
                             <div class="form-group">
-                                <label>Select2</label>
-                                <input type="text" class="form-control" value="<?php echo $data->select2 ?>" name="select2" readonly placeholder="Password">
+                                <label>Master</label>
+                                <input type="text" class="form-control" value="<?php echo $data->master ?>" name="select2" readonly >
                             </div>
                             <div class="form-group">
                                 <label>Textarea</label>
@@ -38,11 +38,28 @@
                             </div>
                             <div class="form-group">
                                 <label>Input Mask</label>
-                                <input type="text" class="form-control" value="<?php echo $data->mask ?>" name="mask" readonly placeholder="Password">
+                                <input type="text" class="form-control" value="<?php echo $data->mask ?>" name="mask" readonly >
                             </div>
                             <div class="form-group">
                                 <label>Radio</label>
-                                <input type="text" class="form-control" value="<?php echo $data->radio ?>" name="radio" readonly placeholder="Password">
+                                <input type="text" class="form-control" value="<?php echo $data->radio ?>" name="radio" readonly >
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="text" class="form-control" value="<?php echo date("d/m/Y", strtotime($data->date))  ?>" name="date" readonly >
+                            </div>
+                            <div class="form-group">
+                                <label>Time</label>
+                                <input type="text" class="form-control" value="<?php echo $data->time ?>" name="time" readonly >
+                            </div>
+                            <div class="form-group">
+                                <label>File</label>
+                                <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="File" value="<?php echo $data->file ?>" readonly>
+                                <div class="input-group-append">
+                                    <a class="btn btn-info text-white" type="button" href="<?php echo base_url("upload/$data->file") ?>" download>Download</a>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">

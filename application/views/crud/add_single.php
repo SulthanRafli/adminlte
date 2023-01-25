@@ -22,27 +22,24 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Text</label>
-                                <input type="text" class="form-control" placeholder="Text" name="text" required>
+                                <input type="text" class="form-control" placeholder="Text" name="text" id="text" required>
                             </div>
                             <div class="form-group">
                                 <label>Number</label>
-                                <input type="number" class="form-control" placeholder="Number" name="number" required>
+                                <input type="number" class="form-control" placeholder="Number" name="number" id="number" required>
                             </div>
                             <div class="form-group">
                                 <label>Select2</label>
-                                <select class="form-control select2bs4" placeholder="Select" name="select2" style="width: 100%;" required>
-                                    <option value="Alabama" selected="selected">Alabama</option>
-                                    <option value="Alaska">Alaska</option>
-                                    <option value="California">California</option>
-                                    <option value="Delaware">Delaware</option>
-                                    <option value="Tennessee">Tennessee</option>
-                                    <option value="Texas">Texas</option>
-                                    <option value="Washington">Washington</option>
+                                <select class="form-control select2bs4" data-placeholder="Pilih.." name="select2" id="select2" style="width: 100%;" required>
+                                    <option value="">Pilih</option>
+                                    <?php foreach ($data_master as $dm) {                                        
+                                        echo "<option value='$dm->idMaster'>$dm->text</option>";
+                                    } ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Textarea</label>
-                                <textarea class="form-control" rows="3" placeholder="Textarea" name="textarea"></textarea>
+                                <textarea class="form-control" rows="3" placeholder="Textarea" name="textarea" id="textarea"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Input Mask</label>
@@ -52,6 +49,18 @@
                                     </div>
                                     <input id="datemask" type="text" class="form-control" name="mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" class="form-control" placeholder="Date" name="date" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Time</label>
+                                <input type="time" class="form-control" placeholder="Time" name="time" id="time" required>
+                            </div>
+                            <div class="form-group">
+                                <label>File</label>
+                                <input type="file" class="form-control" placeholder="File" name="file" id="file" required>
                             </div>
                             <div class="form-group">
                                 <label>Radio</label>
@@ -78,7 +87,7 @@
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>C_crud/list_login">Kembali</a>
+                            <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>C_crud/list_single">Kembali</a>
                             <button type="button-submit" class="btn btn-primary" onclick="save()">Simpan</button>
                         </div>
                     </form>
@@ -100,6 +109,19 @@
 
     function save() {
         $("#basic").submit(function(e) {
+            let fileData = $("#file").prop("files")[0] ? $("#file").prop("files")[0] : "";     
+            
+            let formData = new FormData();
+            formData.append("text", $("#text").val());                                              
+            formData.append("number", $("#number").val());                                              
+            formData.append("select2", $("#select2").val());                                              
+            formData.append("textarea", $("#textarea").val());                                              
+            formData.append("mask", $("#datemask").val());                                              
+            formData.append("date", $("#date").val());                                              
+            formData.append("time", $("#time").val());                                                                                                     
+            formData.append("radio", $('input[name="radio"]:checked').val());                                                                                                     
+            formData.append("file", fileData);
+
             swal({
                 title: "Apa anda yakin ingin menyimpan data ?",
                 text: "Pastikan data yang diinput benar!",
@@ -111,7 +133,11 @@
                     $.ajax({
                         type: "POST",
                         url: baseUrl + "C_crud/save_single",
-                        data: $(e.target).serialize(),
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        data: formData,
                         dataType: "json",
                         success: function(data) {
                             if (data.status === true) {

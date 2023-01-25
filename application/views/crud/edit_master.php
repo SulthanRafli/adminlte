@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Form Login</h1>
+                <h1>Form Master</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">List Data Login</a></li>
-                    <li class="breadcrumb-item active">Ubah Data Login</li>
+                    <li class="breadcrumb-item"><a href="#">List Data Master</a></li>
+                    <li class="breadcrumb-item active">Ubah Data Master</li>
                 </ol>
             </div>
         </div>
@@ -21,21 +21,13 @@
                     <form id="basic">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Nama</label>
-                                <input type="text" class="form-control" value="<?php echo $data->nama ?>" name="nama" placeholder="Nama">
-                            </div>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" class="form-control" value="<?php echo $data->username ?>" name="username" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" value="<?php echo $data->password ?>" name="password" placeholder="Password">
+                                <label>Text</label>
+                                <input type="text" class="form-control" placeholder="Text" name="text" value="<?php echo $data->text ?>" required>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>C_crud/list_single">Kembali</a>
-                            <button type="button-submit" class="btn btn-primary" onclick="edit(<?php echo $data->idLogin ?>)">Ubah</button>
+                            <a type="button" class="btn btn-danger" href="<?php echo base_url(); ?>C_crud/list_master">Kembali</a>
+                            <button type="button-submit" class="btn btn-primary" onclick="edit(<?php echo $data->idMaster ?>)">Simpan</button>
                         </div>
                     </form>
                 </div>
@@ -56,7 +48,7 @@
                 if (isConfirm) {
                     $.ajax({
                         type: "POST",
-                        url: baseUrl + "C_crud/update_login/" + id,
+                        url: baseUrl + "C_crud/update_master/" + id,
                         data: $(e.target).serialize(),
                         dataType: "json",
                         success: function(data) {
@@ -67,7 +59,7 @@
                                     icon: "success",
                                     button: "OK",
                                 }).then(function(isConfirm) {
-                                    window.location = baseUrl + "C_crud/list_login";
+                                    window.location = baseUrl + "C_crud/list_master";
                                 });
                             } else {
                                 swal({
