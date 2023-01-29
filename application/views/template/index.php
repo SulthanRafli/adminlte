@@ -13,7 +13,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="<?php echo base_url('assets/') ?>dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60" />
+            <img class="animation__shake" src="<?php echo base_url('assets/') ?>dist/img/logo.png" alt="logo" height="60" width="60" />
         </div>
 
         <?php $this->load->view('template/navbar') ?>
