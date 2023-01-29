@@ -12,7 +12,7 @@
     } ?>
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin</b>LTE</a>
+            <a href="#"><b>Gereja Permata Bekasi</b> </a>
         </div>
 
         <div class="card">

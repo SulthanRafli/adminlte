@@ -22,7 +22,8 @@ class C_login extends CI_Controller
         if ($result) {
             $data = [
                 'idLogin' => $result->idLogin,
-                'isLogin' => true
+                'nama' => $result->nama,
+                'isLogin' => true,
             ];
             $this->session->set_userdata($data);
             echo json_encode(array(
